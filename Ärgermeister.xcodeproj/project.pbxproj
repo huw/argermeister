@@ -47,6 +47,7 @@
 		4221B1AA1B587F2A00643DEE /* ÄrgermeisterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ÄrgermeisterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4221B1AE1B587F2A00643DEE /* A_rgermeisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_rgermeisterUITests.swift; sourceTree = "<group>"; };
 		4221B1B01B587F2A00643DEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4221B1BC1B587F5100643DEE /* Ärgermeister.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ärgermeister.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +98,7 @@
 		4221B18E1B587F2A00643DEE /* Ärgermeister */ = {
 			isa = PBXGroup;
 			children = (
+				4221B1BC1B587F5100643DEE /* Ärgermeister.entitlements */,
 				4221B18F1B587F2A00643DEE /* AppDelegate.swift */,
 				4221B1911B587F2A00643DEE /* GameScene.swift */,
 				4221B1931B587F2A00643DEE /* GameScene.sks */,
@@ -192,6 +194,11 @@
 				TargetAttributes = {
 					4221B18B1B587F2900643DEE = {
 						CreatedOnToolsVersion = 7.0;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					4221B19E1B587F2A00643DEE = {
 						CreatedOnToolsVersion = 7.0;
@@ -343,6 +350,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -380,6 +388,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Release;
 		};
@@ -387,11 +396,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ärgermeister/Ärgermeister.entitlements";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Ärgermeister/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nu.huw.A-rgermeister";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -399,11 +410,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ärgermeister/Ärgermeister.entitlements";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Ärgermeister/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nu.huw.A-rgermeister";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Release;
 		};
