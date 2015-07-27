@@ -1,24 +1,21 @@
 //
-//  Player.swift
+//  Enemy.swift
 //  Ärgermeister
 //
-//  Created by Huw on 2015-07-23.
+//  Created by Huw on 2015-07-26.
 //  Copyright © 2015 Huw. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class Player: SKSpriteNode {
-    
-    var moving = false
+class Enemy: SKSpriteNode {
     
     init() {
-        super.init(texture: nil, color: SKColor.yellowColor(), size: CGSize(width: 30, height: 30))
-        
-        self.position = CGPoint(x: 0, y: 0)
+        super.init(texture: nil, color: SKColor.redColor(), size: CGSize(width: 30, height: 30))
+
         let body: SKPhysicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: 49, height: 49))
-        body.categoryBitMask = BodyType.player.rawValue
+        body.categoryBitMask = BodyType.enemy.rawValue
         
         // Must be true for collisions, gravity must be false so it doesn't fall
         body.dynamic = true
@@ -27,27 +24,18 @@ class Player: SKSpriteNode {
         
         // Only physically collide with this type
         body.collisionBitMask = BodyType.wall.rawValue
-        
-        // Send a notification that it's touched this type
-        //body.contactTestBitMask = BodyType.enemy.rawValue
-        
+
         self.physicsBody = body
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func move(x: Int, y: Int, map: [[Tile]]) {
-        if moving == false {
-            moving = true
-            
-            // Only allow a single movement at a time
-            // Instead of moving the body, we give it a velocity
-            // This velocity stops after a certain amount of time
+    /*func move(x: Int, y: Int) {
             
             self.physicsBody?.velocity = CGVectorMake(CGFloat(x * 100), CGFloat(y * 100))
-                
+            
             let moveDuration = SKAction.waitForDuration(0.5)
             let stopMoving = SKAction.runBlock({
                 
@@ -62,5 +50,5 @@ class Player: SKSpriteNode {
             })
             self.runAction(SKAction.sequence([moveDuration, stopMoving]))
         }
-    }
+    }*/
 }
