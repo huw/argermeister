@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4207AE361B61E757004D69BF /* map.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4207AE351B61E757004D69BF /* map.txt */; };
 		4221B1901B587F2A00643DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221B18F1B587F2A00643DEE /* AppDelegate.swift */; };
-		4221B1921B587F2A00643DEE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221B1911B587F2A00643DEE /* GameScene.swift */; };
-		4221B1941B587F2A00643DEE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4221B1931B587F2A00643DEE /* GameScene.sks */; };
+		4221B1921B587F2A00643DEE /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221B1911B587F2A00643DEE /* LevelScene.swift */; };
 		4221B1961B587F2A00643DEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4221B1951B587F2A00643DEE /* Assets.xcassets */; };
 		4221B1991B587F2A00643DEE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4221B1971B587F2A00643DEE /* MainMenu.xib */; };
 		4221B1A41B587F2A00643DEE /* A_rgermeisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221B1A31B587F2A00643DEE /* A_rgermeisterTests.swift */; };
 		4221B1AF1B587F2A00643DEE /* A_rgermeisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221B1AE1B587F2A00643DEE /* A_rgermeisterUITests.swift */; };
+		42326E941B60B07C00F0FD51 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42326E931B60B07C00F0FD51 /* Tile.swift */; };
+		42326E961B60C35800F0FD51 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42326E951B60C35800F0FD51 /* Player.swift */; };
+		429209CA1B6E16CE000B7407 /* FightScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429209C91B6E16CE000B7407 /* FightScene.swift */; };
+		42DC5AC41B64EBDE00D4530A /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC5AC31B64EBDD00D4530A /* Enemy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4207AE351B61E757004D69BF /* map.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map.txt; sourceTree = "<group>"; };
 		4221B18C1B587F2A00643DEE /* Ärgermeister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ärgermeister.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4221B18F1B587F2A00643DEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4221B1911B587F2A00643DEE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		4221B1931B587F2A00643DEE /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		4221B1911B587F2A00643DEE /* LevelScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
 		4221B1951B587F2A00643DEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4221B1981B587F2A00643DEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4221B19A1B587F2A00643DEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +52,10 @@
 		4221B1AE1B587F2A00643DEE /* A_rgermeisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_rgermeisterUITests.swift; sourceTree = "<group>"; };
 		4221B1B01B587F2A00643DEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4221B1BC1B587F5100643DEE /* Ärgermeister.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ärgermeister.entitlements"; sourceTree = "<group>"; };
+		42326E931B60B07C00F0FD51 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		42326E951B60C35800F0FD51 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		429209C91B6E16CE000B7407 /* FightScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FightScene.swift; sourceTree = "<group>"; };
+		42DC5AC31B64EBDD00D4530A /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,11 +108,15 @@
 			children = (
 				4221B1BC1B587F5100643DEE /* Ärgermeister.entitlements */,
 				4221B18F1B587F2A00643DEE /* AppDelegate.swift */,
-				4221B1911B587F2A00643DEE /* GameScene.swift */,
-				4221B1931B587F2A00643DEE /* GameScene.sks */,
+				4221B1911B587F2A00643DEE /* LevelScene.swift */,
+				429209C91B6E16CE000B7407 /* FightScene.swift */,
+				42326E931B60B07C00F0FD51 /* Tile.swift */,
+				42DC5AC31B64EBDD00D4530A /* Enemy.swift */,
+				42326E951B60C35800F0FD51 /* Player.swift */,
 				4221B1951B587F2A00643DEE /* Assets.xcassets */,
 				4221B1971B587F2A00643DEE /* MainMenu.xib */,
 				4221B19A1B587F2A00643DEE /* Info.plist */,
+				4207AE351B61E757004D69BF /* map.txt */,
 			);
 			path = "Ärgermeister";
 			sourceTree = "<group>";
@@ -236,8 +248,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4221B1961B587F2A00643DEE /* Assets.xcassets in Resources */,
-				4221B1941B587F2A00643DEE /* GameScene.sks in Resources */,
 				4221B1991B587F2A00643DEE /* MainMenu.xib in Resources */,
+				4207AE361B61E757004D69BF /* map.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,8 +274,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4221B1921B587F2A00643DEE /* GameScene.swift in Sources */,
+				42326E961B60C35800F0FD51 /* Player.swift in Sources */,
+				42DC5AC41B64EBDE00D4530A /* Enemy.swift in Sources */,
+				42326E941B60B07C00F0FD51 /* Tile.swift in Sources */,
+				4221B1921B587F2A00643DEE /* LevelScene.swift in Sources */,
 				4221B1901B587F2A00643DEE /* AppDelegate.swift in Sources */,
+				429209CA1B6E16CE000B7407 /* FightScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +507,7 @@
 				4221B1B51B587F2A00643DEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4221B1B61B587F2A00643DEE /* Build configuration list for PBXNativeTarget "ÄrgermeisterTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +516,7 @@
 				4221B1B81B587F2A00643DEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4221B1B91B587F2A00643DEE /* Build configuration list for PBXNativeTarget "ÄrgermeisterUITests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +525,7 @@
 				4221B1BB1B587F2A00643DEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

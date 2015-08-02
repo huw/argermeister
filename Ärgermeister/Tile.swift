@@ -21,7 +21,8 @@ class Tile: SKSpriteNode {
         "mountain": SKColor.darkGrayColor(),
         "water": SKColor.blueColor(),
         "lava": SKColor.orangeColor(),
-        "forest": SKColor(red: 0.2, green: 1, blue: 0.2, alpha: 1)
+        "forest": SKColor(red: 0.2, green: 1, blue: 0.2, alpha: 1),
+        "void": SKColor.clearColor()
     ]
     
     init(x: Int, y: Int, type: String, wall: Bool, item: String) {
@@ -31,11 +32,16 @@ class Tile: SKSpriteNode {
         
         super.init(texture: nil, color: colours[type]!, size: CGSize(width: self.width, height: self.width))
         
-        self.position = CGPoint(x: x * self.width, y: y * self.width)
+        self.position = CGPoint(x: x * width, y: y * width)
         let body: SKPhysicsBody = SKPhysicsBody(rectangleOfSize: self.size)
         body.dynamic = false
         
-        // Only set up collisions if it's a wall
+        // Only set up collisions if it's a wall:
+        // The categoryBitMask effectively sets its category as an object,
+        // so that we know what collides with it. If it's 'wall', then
+        // it collides with the player and enemy, but if it's 'tile',
+        // then we consider it part of the background.
+        
         if wall {
             body.categoryBitMask = BodyType.wall.rawValue
         } else {
