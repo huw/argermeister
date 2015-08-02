@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4207AE361B61E757004D69BF /* map.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4207AE351B61E757004D69BF /* map.txt */; };
+		4221B1901B587F2A00643DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221B18F1B587F2A00643DEE /* AppDelegate.swift */; };
+		4221B1921B587F2A00643DEE /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221B1911B587F2A00643DEE /* LevelScene.swift */; };
+		4221B1961B587F2A00643DEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4221B1951B587F2A00643DEE /* Assets.xcassets */; };
+		4221B1991B587F2A00643DEE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4221B1971B587F2A00643DEE /* MainMenu.xib */; };
+		4221B1A41B587F2A00643DEE /* A_rgermeisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221B1A31B587F2A00643DEE /* A_rgermeisterTests.swift */; };
+		4221B1AF1B587F2A00643DEE /* A_rgermeisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221B1AE1B587F2A00643DEE /* A_rgermeisterUITests.swift */; };
+		42326E941B60B07C00F0FD51 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42326E931B60B07C00F0FD51 /* Tile.swift */; };
+		42326E961B60C35800F0FD51 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42326E951B60C35800F0FD51 /* Player.swift */; };
+		429209CA1B6E16CE000B7407 /* FightScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429209C91B6E16CE000B7407 /* FightScene.swift */; };
+		429209CC1B6E1CFB000B7407 /* FightScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 429209CB1B6E1CFB000B7407 /* FightScene.sks */; };
+		42DC5AC41B64EBDE00D4530A /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC5AC31B64EBDD00D4530A /* Enemy.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4221B1A01B587F2A00643DEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4221B1841B587F2900643DEE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4221B18B1B587F2900643DEE;
+			remoteInfo = "Ärgermeister";
+		};
+		4221B1AB1B587F2A00643DEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4221B1841B587F2900643DEE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4221B18B1B587F2900643DEE;
+			remoteInfo = "Ärgermeister";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4207AE351B61E757004D69BF /* map.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map.txt; sourceTree = "<group>"; };
+		4221B18C1B587F2A00643DEE /* Ärgermeister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ärgermeister.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4221B18F1B587F2A00643DEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4221B1911B587F2A00643DEE /* LevelScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
+		4221B1951B587F2A00643DEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4221B1981B587F2A00643DEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4221B19A1B587F2A00643DEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4221B19F1B587F2A00643DEE /* ÄrgermeisterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ÄrgermeisterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4221B1A31B587F2A00643DEE /* A_rgermeisterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_rgermeisterTests.swift; sourceTree = "<group>"; };
+		4221B1A51B587F2A00643DEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4221B1AA1B587F2A00643DEE /* ÄrgermeisterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ÄrgermeisterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4221B1AE1B587F2A00643DEE /* A_rgermeisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_rgermeisterUITests.swift; sourceTree = "<group>"; };
+		4221B1B01B587F2A00643DEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4221B1BC1B587F5100643DEE /* Ärgermeister.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ärgermeister.entitlements"; sourceTree = "<group>"; };
+		42326E931B60B07C00F0FD51 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		42326E951B60C35800F0FD51 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		429209C91B6E16CE000B7407 /* FightScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FightScene.swift; sourceTree = "<group>"; };
+		429209CB1B6E1CFB000B7407 /* FightScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FightScene.sks; sourceTree = "<group>"; };
+		42DC5AC31B64EBDD00D4530A /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4221B1891B587F2900643DEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4221B19C1B587F2A00643DEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4221B1A71B587F2A00643DEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4221B1831B587F2900643DEE = {
+			isa = PBXGroup;
+			children = (
+				4221B18E1B587F2A00643DEE /* Ärgermeister */,
+				4221B1A21B587F2A00643DEE /* ÄrgermeisterTests */,
+				4221B1AD1B587F2A00643DEE /* ÄrgermeisterUITests */,
+				4221B18D1B587F2A00643DEE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4221B18D1B587F2A00643DEE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4221B18C1B587F2A00643DEE /* Ärgermeister.app */,
+				4221B19F1B587F2A00643DEE /* ÄrgermeisterTests.xctest */,
+				4221B1AA1B587F2A00643DEE /* ÄrgermeisterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4221B18E1B587F2A00643DEE /* Ärgermeister */ = {
+			isa = PBXGroup;
+			children = (
+				4221B1BC1B587F5100643DEE /* Ärgermeister.entitlements */,
+				4221B18F1B587F2A00643DEE /* AppDelegate.swift */,
+				4221B1911B587F2A00643DEE /* LevelScene.swift */,
+				429209C91B6E16CE000B7407 /* FightScene.swift */,
+				429209CB1B6E1CFB000B7407 /* FightScene.sks */,
+				42326E931B60B07C00F0FD51 /* Tile.swift */,
+				42DC5AC31B64EBDD00D4530A /* Enemy.swift */,
+				42326E951B60C35800F0FD51 /* Player.swift */,
+				4221B1951B587F2A00643DEE /* Assets.xcassets */,
+				4221B1971B587F2A00643DEE /* MainMenu.xib */,
+				4221B19A1B587F2A00643DEE /* Info.plist */,
+				4207AE351B61E757004D69BF /* map.txt */,
+			);
+			path = "Ärgermeister";
+			sourceTree = "<group>";
+		};
+		4221B1A21B587F2A00643DEE /* ÄrgermeisterTests */ = {
+			isa = PBXGroup;
+			children = (
+				4221B1A31B587F2A00643DEE /* A_rgermeisterTests.swift */,
+				4221B1A51B587F2A00643DEE /* Info.plist */,
+			);
+			path = "ÄrgermeisterTests";
+			sourceTree = "<group>";
+		};
+		4221B1AD1B587F2A00643DEE /* ÄrgermeisterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4221B1AE1B587F2A00643DEE /* A_rgermeisterUITests.swift */,
+				4221B1B01B587F2A00643DEE /* Info.plist */,
+			);
+			path = "ÄrgermeisterUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4221B18B1B587F2900643DEE /* Ärgermeister */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4221B1B31B587F2A00643DEE /* Build configuration list for PBXNativeTarget "Ärgermeister" */;
+			buildPhases = (
+				4221B1881B587F2900643DEE /* Sources */,
+				4221B1891B587F2900643DEE /* Frameworks */,
+				4221B18A1B587F2900643DEE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Ärgermeister";
+			productName = "Ärgermeister";
+			productReference = 4221B18C1B587F2A00643DEE /* Ärgermeister.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4221B19E1B587F2A00643DEE /* ÄrgermeisterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4221B1B61B587F2A00643DEE /* Build configuration list for PBXNativeTarget "ÄrgermeisterTests" */;
+			buildPhases = (
+				4221B19B1B587F2A00643DEE /* Sources */,
+				4221B19C1B587F2A00643DEE /* Frameworks */,
+				4221B19D1B587F2A00643DEE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4221B1A11B587F2A00643DEE /* PBXTargetDependency */,
+			);
+			name = "ÄrgermeisterTests";
+			productName = "ÄrgermeisterTests";
+			productReference = 4221B19F1B587F2A00643DEE /* ÄrgermeisterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4221B1A91B587F2A00643DEE /* ÄrgermeisterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4221B1B91B587F2A00643DEE /* Build configuration list for PBXNativeTarget "ÄrgermeisterUITests" */;
+			buildPhases = (
+				4221B1A61B587F2A00643DEE /* Sources */,
+				4221B1A71B587F2A00643DEE /* Frameworks */,
+				4221B1A81B587F2A00643DEE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4221B1AC1B587F2A00643DEE /* PBXTargetDependency */,
+			);
+			name = "ÄrgermeisterUITests";
+			productName = "ÄrgermeisterUITests";
+			productReference = 4221B1AA1B587F2A00643DEE /* ÄrgermeisterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4221B1841B587F2900643DEE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Huw;
+				TargetAttributes = {
+					4221B18B1B587F2900643DEE = {
+						CreatedOnToolsVersion = 7.0;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+					4221B19E1B587F2A00643DEE = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 4221B18B1B587F2900643DEE;
+					};
+					4221B1A91B587F2A00643DEE = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 4221B18B1B587F2900643DEE;
+					};
+				};
+			};
+			buildConfigurationList = 4221B1871B587F2900643DEE /* Build configuration list for PBXProject "Ärgermeister" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4221B1831B587F2900643DEE;
+			productRefGroup = 4221B18D1B587F2A00643DEE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4221B18B1B587F2900643DEE /* Ärgermeister */,
+				4221B19E1B587F2A00643DEE /* ÄrgermeisterTests */,
+				4221B1A91B587F2A00643DEE /* ÄrgermeisterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4221B18A1B587F2900643DEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4221B1961B587F2A00643DEE /* Assets.xcassets in Resources */,
+				429209CC1B6E1CFB000B7407 /* FightScene.sks in Resources */,
+				4221B1991B587F2A00643DEE /* MainMenu.xib in Resources */,
+				4207AE361B61E757004D69BF /* map.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4221B19D1B587F2A00643DEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4221B1A81B587F2A00643DEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4221B1881B587F2900643DEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42326E961B60C35800F0FD51 /* Player.swift in Sources */,
+				42DC5AC41B64EBDE00D4530A /* Enemy.swift in Sources */,
+				42326E941B60B07C00F0FD51 /* Tile.swift in Sources */,
+				4221B1921B587F2A00643DEE /* LevelScene.swift in Sources */,
+				4221B1901B587F2A00643DEE /* AppDelegate.swift in Sources */,
+				429209CA1B6E16CE000B7407 /* FightScene.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4221B19B1B587F2A00643DEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4221B1A41B587F2A00643DEE /* A_rgermeisterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4221B1A61B587F2A00643DEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4221B1AF1B587F2A00643DEE /* A_rgermeisterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4221B1A11B587F2A00643DEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4221B18B1B587F2900643DEE /* Ärgermeister */;
+			targetProxy = 4221B1A01B587F2A00643DEE /* PBXContainerItemProxy */;
+		};
+		4221B1AC1B587F2A00643DEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4221B18B1B587F2900643DEE /* Ärgermeister */;
+			targetProxy = 4221B1AB1B587F2A00643DEE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4221B1971B587F2A00643DEE /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4221B1981B587F2A00643DEE /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4221B1B11B587F2A00643DEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4221B1B21B587F2A00643DEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Release;
+		};
+		4221B1B41B587F2A00643DEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ärgermeister/Ärgermeister.entitlements";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Ärgermeister/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nu.huw.A-rgermeister";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		4221B1B51B587F2A00643DEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ärgermeister/Ärgermeister.entitlements";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Ärgermeister/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nu.huw.A-rgermeister";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Release;
+		};
+		4221B1B71B587F2A00643DEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "ÄrgermeisterTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nu.huw.A-rgermeisterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ärgermeister.app/Contents/MacOS/Ärgermeister";
+			};
+			name = Debug;
+		};
+		4221B1B81B587F2A00643DEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "ÄrgermeisterTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nu.huw.A-rgermeisterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ärgermeister.app/Contents/MacOS/Ärgermeister";
+			};
+			name = Release;
+		};
+		4221B1BA1B587F2A00643DEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "ÄrgermeisterUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nu.huw.A-rgermeisterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Ärgermeister";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		4221B1BB1B587F2A00643DEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "ÄrgermeisterUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nu.huw.A-rgermeisterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Ärgermeister";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4221B1871B587F2900643DEE /* Build configuration list for PBXProject "Ärgermeister" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4221B1B11B587F2A00643DEE /* Debug */,
+				4221B1B21B587F2A00643DEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4221B1B31B587F2A00643DEE /* Build configuration list for PBXNativeTarget "Ärgermeister" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4221B1B41B587F2A00643DEE /* Debug */,
+				4221B1B51B587F2A00643DEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4221B1B61B587F2A00643DEE /* Build configuration list for PBXNativeTarget "ÄrgermeisterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4221B1B71B587F2A00643DEE /* Debug */,
+				4221B1B81B587F2A00643DEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4221B1B91B587F2A00643DEE /* Build configuration list for PBXNativeTarget "ÄrgermeisterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4221B1BA1B587F2A00643DEE /* Debug */,
+				4221B1BB1B587F2A00643DEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4221B1841B587F2900643DEE /* Project object */;
+}
