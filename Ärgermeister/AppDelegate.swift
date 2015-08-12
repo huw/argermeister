@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var skView: SKView!
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        let scene = LevelScene(size: CGSize(width: 1024, height: 768))
+        let scene = MenuScene(fileNamed: "MenuScene")!
         
         // Aspect fill produces the best results
         scene.scaleMode = .AspectFill

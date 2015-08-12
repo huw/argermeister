@@ -16,12 +16,53 @@ class Player: SKSpriteNode {
     var dy: CGFloat = 0
     var node: GKGraphNode2D = GKGraphNode2D(point: vector_float2(0, 0))
     
-    var health = 100
+    var attackSpeed = 50 * (random(0.5) + 0.5)
+    var health = 150
+    var maxHealth = 150
+    var level: Float = 2
+    var defence = 10
+    
+    var weapons: [String: Int] = ["Fist": 5, "Spear": 10]
+    var potions = 5
     
     init() {
         super.init(texture: nil, color: SKColor.yellowColor(), size: CGSize(width: 30, height: 30))
         
-        self.position = CGPoint(x: 0, y: 0)
+        self.health = maxHealth
+        
+        initPhysics()
+    }
+
+    required init(coder: NSCoder) {
+        self.attackSpeed = coder.decodeObjectForKey("speed") as! Float
+        self.health = coder.decodeObjectForKey("health") as! Int
+        self.maxHealth = coder.decodeObjectForKey("maxHealth") as! Int
+        self.level = coder.decodeObjectForKey("level") as! Float
+        self.defence = coder.decodeObjectForKey("defence") as! Int
+        self.weapons = coder.decodeObjectForKey("weapons") as! [String: Int]
+        super.init(texture: nil, color: SKColor.yellowColor(), size: CGSize(width: 30, height: 30))
+        
+        self.name = coder.decodeObjectForKey("name") as? String
+        self.color = coder.decodeObjectForKey("color") as! SKColor
+        
+        self.health = maxHealth
+        
+        initPhysics()
+    }
+    
+    override func encodeWithCoder(coder: NSCoder) {
+        coder.encodeObject(self.name, forKey: "name")
+        coder.encodeObject(self.color, forKey: "color")
+        coder.encodeObject(self.attackSpeed, forKey: "speed")
+        coder.encodeObject(self.health, forKey: "health")
+        coder.encodeObject(self.maxHealth, forKey: "maxHealth")
+        coder.encodeObject(self.level, forKey: "level")
+        coder.encodeObject(self.defence, forKey: "defence")
+        coder.encodeObject(self.weapons, forKey: "weapons")
+    }
+    
+    func initPhysics() {
+        self.position = CGPoint(x: 50, y: 50)
         
         /**
             Physics setup. We build this object a _body_, which is basically
@@ -46,10 +87,6 @@ class Player: SKSpriteNode {
         body.contactTestBitMask = BodyType.enemy.rawValue
         
         self.physicsBody = body
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func act(keys: [String: Bool]) {
@@ -105,5 +142,79 @@ class Player: SKSpriteNode {
         
         // Set our velocity to the appropriate vector
         self.physicsBody?.velocity = CGVectorMake(dx, dy)
+    }
+    
+    func awardBonuses(enemyWeapons: [String: Int], enemyLevel: Int, saveScene: MenuScene) {
+        // The experience earned should scale with the difference in level
+        // An enemy that is three levels above us should earn us an entire level
+        // An enemy that is 3 levels below us should earn us nothing
+        let expEarned: Float = Float(pow(2,Double(enemyLevel - Int(floor(self.level)))) / 8)
+        
+        if level + expEarned >= ceil(level + 0.001) {
+            // Note, ceil(2.0) returns 2.0. We need to add a small amount.
+            
+            // Level up, because the XP we gain puts us past the next level
+            showLabel(self, text: "LEVEL UP")
+            
+            // Recalculate health
+            maxHealth = Int(50 * (Double(floor(level + expEarned)) + 0.5) + 75)
+            health += 50
+            attackSpeed += random(15)
+            defence += Int(random(10))
+        }
+        
+        level += expEarned
+        
+        // Save the data now that we've leveled up
+        saveScene.characters[saveScene.selectedCharacter] = self
+        saveScene.save()
+        
+        if random() >= 0.7 {
+            // 30% chance for items
+            let index = Int(random(enemyWeapons.count))
+            let item = enemyWeapons.keys.array[index]
+            let damage = availableWeapons[item] // Get the damage from the untampered source
+            
+            // This clause keeps our weapons dictionary limited to 4
+            // We find the weapons with the lowest value, and then
+            // remove it, because we don't want something so useless
+            
+            var lowestVal = damage
+            var lowestKey: String = item
+            for (key, value) in self.weapons {
+                if value <= lowestVal {
+                    lowestKey = key
+                    lowestVal = value
+                }
+            }
+            
+            if self.weapons.count >= 4 {
+                // Removes the least effective item if we're full
+                self.weapons.removeValueForKey(lowestKey)
+                
+                if lowestKey != item {
+                    // Only runs if the incoming item is replacing something
+                    showLabel(self, text: "ADDED \(item.uppercaseString)")
+                    self.weapons[item] = damage
+                }
+            } else {
+                showLabel(self, text: "ADDED \(item.uppercaseString)")
+                self.weapons[item] = damage
+            }
+        }
+        
+        if random() >= 0.3 {
+            self.potions += 1
+            showLabel(self, text: "ADDED HEALTH POTION")
+            
+            if random() >= 0.5 {
+                self.potions += 1
+                showLabel(self, text: "ADDED BONUS HEALTH POTION")
+            }
+        }
+        
+        if random() >= 0.5 {
+            health += Int(25 + random(50))
+        }
     }
 }

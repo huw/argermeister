@@ -1,3 +1,4 @@
+
 //
 //  GameScene.swift
 //  Ärgermeister
@@ -10,25 +11,24 @@ import SpriteKit
 import GameplayKit
 import Darwin // Mathematical functions
 
-enum BodyType: UInt32 {
-    case player = 1
-    case wall = 2
-    case tile = 4
-    case enemy = 8
-}
-
 class LevelScene: SKScene, SKPhysicsContactDelegate {
     
     var map: [[Tile]] = [[Tile]]()
     var graph: GKObstacleGraph = GKObstacleGraph()
     var obstacles: [GKPolygonObstacle] = []
+    var enemySpawns = [Tile]()
     
     var player = Player()
-    var enemy = Enemy(x: 5, y: 3)
+    var enemies = [Enemy]()
     
     // This number squared is the number of tiles
-    var map_size = 10
+    var map_size = 20
     var lastUpdateTime = NSTimeInterval()
+    var built = false
+    var justGotBack = false
+    var fightLoser = SKNode()
+    
+    var save = MenuScene()
     
     var keys = [
         "w": false,
@@ -39,15 +39,27 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     
     // Runs when the GameScene starts to display, rather than on init
     override func didMoveToView(view: SKView) {
-        build()
+        if built {
+            // Halt the player when we return from battle
+            player.dx = 0
+            player.dy = 0
+            player.physicsBody?.velocity = CGVectorMake(0, 0)
+            keys = ["w": false, "a": false, "s": false, "d": false]
+            
+            // A valiant victory! Congratulation!
+            let enemy = fightLoser as! Enemy
+            player.awardBonuses(enemy.weapons, enemyLevel: Int(floor(enemy.level)), saveScene: self.save)
+            
+            fightLoser.removeFromParent()
+        } else {
+            // Otherwise, we haven't built everything yet, so build everything
+            build()
+        }
     }
     
     func build() {
         // Reinitialise variables
-        map = [[Tile]]()
-        player = Player()
-        enemy = Enemy(x: 5, y: 3)
-        map_size = 10
+        enemies = [Enemy]()
         lastUpdateTime = NSTimeInterval()
         keys = ["w": false, "a": false, "s": false, "d": false]
         
@@ -56,18 +68,15 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         // Allow this class to recieve physics events
         physicsWorld.contactDelegate = self
         
-        // Build a camera, and add it to the scene
-        let newCamera = SKCameraNode()
-        self.camera = newCamera
-        self.addChild(newCamera)
-        
         // Add the current player to the scene
         self.addChild(player)
         
         // Set the background colour
         self.backgroundColor = SKColor.blackColor()
         
-        self.addChild(enemy)
+        spawnEnemy()
+        
+        built = true
     }
     
     override func keyDown(e: NSEvent) {
@@ -111,19 +120,57 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         // Make the player act on the appropriate keypress
         player.act(keys)
         
+        // The clock keeps ticking while we're gone, which
+        // means when we return the agent will update with
+        // quite a bit of time, and jump a long way away.
+        // Instead, we have a switch which will set the
+        // last update time to the current time.
+        
+        if justGotBack {
+            lastUpdateTime = currentTime
+            justGotBack = false
+        }
+        
+        if floor(currentTime) % 10 == 0 && lastUpdateTime < floor(currentTime) {
+            // If the time is a multiple of 10, and it's the first time its been this time
+            spawnEnemy()
+        }
+        
         // Update the enemy agent
         let dt = currentTime - lastUpdateTime
-        enemy.agent.updateWithDeltaTime(dt)
+        
+        for enemy in enemies {
+            enemy.agent.updateWithDeltaTime(dt)
+        }
+        
         lastUpdateTime = currentTime
         
         // Temporarily add and remove nodes to find the path
         graph.connectNodeUsingObstacles(player.node)
-        graph.connectNodeUsingObstacles(enemy.node)
-        enemy.act(graph.findPathFromNode(enemy.node, toNode: player.node), obstacles: obstacles)
-        graph.removeNodes([player.node, enemy.node])
+        
+        for enemy in enemies {
+            graph.connectNodeUsingObstacles(enemy.node)
+            enemy.act(graph.findPathFromNode(enemy.node, toNode: player.node), obstacles: obstacles)
+            graph.removeNodes([enemy.node])
+        }
+        
+        graph.removeNodes([player.node])
         
         // Center the camera on the player
         self.camera!.position = player.position
+    }
+    
+    func spawnEnemy() {
+        
+        if enemies.count <= 5 {
+            // 5 enemies maximum
+            
+            let spawnPoint = enemySpawns[Int(random(enemySpawns.count))]
+            let enemy = Enemy(x: spawnPoint.position.x, y: spawnPoint.position.y, playerLevel: player.level)
+            
+            enemies.append(enemy)
+            self.addChild(enemy)
+        }
     }
     
     func buildMap(name: String) -> [[Tile]] {
@@ -132,11 +179,6 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         // to an array with each line as a new entry
         let path = NSBundle.mainBundle().pathForResource(name, ofType: "txt")
         let text = try! String(contentsOfFile: path!, encoding: NSUTF8StringEncoding).componentsSeparatedByString("\n")
-        
-        // If the map given is a square, then read it in
-        if sqrt(Double(text.count)) % 1 == 0 {
-            map_size = Int(sqrt(Double(text.count)))
-        }
         
         var map: [[Tile]] = []
         var obstacleTiles: [Tile] = []
@@ -166,6 +208,11 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
                 if wall {
                     // See the explainer below for GKGrids
                     obstacleTiles.append(tile)
+                }
+                
+                if data[4] == "monster" {
+                    // Make this an enemy spawn point
+                    enemySpawns.append(tile)
                 }
                 
                 self.addChild(map[y][x])
@@ -206,16 +253,29 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         let nodeA = contact.bodyA.node
         let nodeB = contact.bodyB.node
         
-        var currentPlayer: Player
+        var currentEnemy: Enemy
         
-        if nodeA is Player {
-            currentPlayer = nodeA as! Player
+        if nodeA is Enemy {
+            currentEnemy = nodeA as! Enemy
         } else {
-            currentPlayer = nodeB as! Player
+            currentEnemy = nodeB as! Enemy
         }
         
-        self.removeAllActions()
-        self.removeAllChildren()
-        self.build()
+        // Set up the transition (a simple fade)
+        let transition = SKTransition.fadeWithDuration(1)
+        
+        player.dx = 0
+        player.dy = 0
+        player.physicsBody?.velocity = CGVectorMake(0, 0)
+        keys = ["w": false, "a": false, "s": false, "d": false]
+        
+        // Set up the fight scene, and give it the callback to this scene
+        let scene = FightScene(fileNamed: "FightScene")!
+        scene.scaleMode = .AspectFill
+        scene.level = self
+        scene.player = self.player
+        scene.enemy = currentEnemy
+        
+        self.scene!.view?.presentScene(scene, transition: transition)
     }
 }
